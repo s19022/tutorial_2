@@ -6,7 +6,11 @@ namespace Tutorial_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Study Study = new Study("Computer Science", "Stationary");
+            
+            Console.WriteLine(Study.Name);
+
         }
     }
 }
