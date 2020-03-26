@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Tutorial_2": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\user\\dotNetProjects\\4_sem\\tutorial_2\\Tutorial_2\\Tutorial_2\\data.csv C:\\Users\\user\\dotNetProjects\\4_sem\\tutorial_2\\Tutorial_2\\Tutorial_2\\result.xml"
+    }
+  }
+}
