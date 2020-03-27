@@ -2,12 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Tutorial_2
 {
+    [XmlRoot("studies")]
     [Serializable]
-    class Study
+    public class Study
     {
+        [XmlElement(ElementName = "name")]
         public string Name { get; set; }
         public string Mode { get; set; }
 

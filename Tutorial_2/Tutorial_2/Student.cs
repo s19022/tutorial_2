@@ -5,7 +5,10 @@ using System.Xml.Serialization;
 
 namespace Tutorial_2
 {
+    [XmlType("student")]
+    [XmlInclude(typeof(Study))]
     [Serializable]
+
     public class Student
     {
         [XmlAttribute(AttributeName = "indexNumber")]
@@ -16,8 +19,8 @@ namespace Tutorial_2
         public string Email { get; set; }
         public string MotherName { get; set; }
         public string FatherName { get; set; }
-
-        private Study studies { get; set; }
+        [XmlElement(ElementName = "study")]
+        public Study studies { get; set; }
 
         public Student()
         {

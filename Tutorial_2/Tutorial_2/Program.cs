@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -14,7 +15,9 @@ namespace Tutorial_2
             FillList(args[0], list);
             Console.WriteLine(args[1]);
 
-            WriteToXml(args[1], list);
+            var university = CreateUniversity(list);
+
+            WriteToXml(args[1], university);
 
 
             
@@ -41,17 +44,25 @@ namespace Tutorial_2
             }
         }
             
-        private static void WriteToXml(string path, List<Student> list)
+        private static void WriteToXml(string path, University university)
         {
             FileStream writer = new FileStream(path, FileMode.Create);
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Student>), new XmlRootAttribute("university"));
-            //var list = new List<Student>();
-            
+            var serializer = new XmlSerializer(typeof(University));
 
 
-            serializer.Serialize(writer, list);
+            serializer.Serialize(writer, university);
 
         }
+
+        private static University CreateUniversity(List<Student> students)
+        {
+            return new University
+            {
+                CreatedAt = DateTime.Now.ToString("dd.MM.yyyy", DateTimeFormatInfo.InvariantInfo),
+                Author = "Jan Kowalski",
+                Students = students
+            };
+        } 
 
         private static bool Contains(List<Student> list, Student student)
         {
